@@ -7,14 +7,11 @@ namespace Fralle.AbilitySystem
 		public float cooldown = 0f;
 		internal float cooldownTimer = 0f;
 
-		public string ActivateButton = "Maybe use enum here";
 		public bool IsReady => Time.time > cooldownTimer;
-
-		public virtual void Update() { }
 
 		public virtual void Perform()
 		{
-			cooldownTimer = Time.deltaTime + cooldown;
+			cooldownTimer = Time.time + cooldown;
 		}
 
 		public override void Setup(AbilityController abilityController) { }
