@@ -17,6 +17,8 @@ namespace Fralle.AbilitySystem
 
 		public List<PassiveAbility> PassiveAbilities;
 
+		public GameObject postProcess;
+
 		PlayerInput playerInput;
 
 		public void NewAbility(Ability ability, AbilityType abilityType)
