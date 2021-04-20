@@ -17,7 +17,7 @@ namespace Fralle.AbilitySystem
 
 		public List<PassiveAbility> PassiveAbilities;
 
-		public GameObject postProcess;
+		public GameObject PostProcess;
 
 		PlayerInput playerInput;
 
@@ -25,16 +25,16 @@ namespace Fralle.AbilitySystem
 		{
 			switch (abilityType)
 			{
-				case AbilityType.MOVEMENT:
+				case AbilityType.Movement:
 					MovementAbility = (ActiveAbility)SetupAbility(ability);
 					break;
-				case AbilityType.ATTACK:
+				case AbilityType.Attack:
 					AttackAbility = (ActiveAbility)SetupAbility(ability);
 					break;
-				case AbilityType.ULTIMATE:
+				case AbilityType.Ultimate:
 					UltimateAbility = (ActiveAbility)SetupAbility(ability);
 					break;
-				case AbilityType.PASSIVE:
+				case AbilityType.Passive:
 					PassiveAbilities.Add((PassiveAbility)SetupAbility(ability));
 					break;
 			}

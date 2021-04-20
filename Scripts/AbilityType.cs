@@ -2,9 +2,9 @@
 {
 	public enum AbilityType
 	{
-		MOVEMENT,
-		ATTACK,
-		ULTIMATE,
-		PASSIVE
+		Movement,
+		Attack,
+		Ultimate,
+		Passive
 	}
 }

@@ -4,14 +4,14 @@ namespace Fralle.AbilitySystem
 {
 	public class ActiveAbility : Ability
 	{
-		public float cooldown = 0f;
-		internal float cooldownTimer = 0f;
+		public float Cooldown = 0f;
+		internal float CooldownTimer;
 
-		public bool IsReady => Time.time > cooldownTimer;
+		public bool IsReady => Time.time > CooldownTimer;
 
 		public virtual void Perform()
 		{
-			cooldownTimer = Time.time + cooldown;
+			CooldownTimer = Time.time + Cooldown;
 		}
 
 		public override void Setup(AbilityController abilityController) { }
