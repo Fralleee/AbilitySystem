@@ -57,10 +57,10 @@ namespace Fralle.AbilitySystem
 			UltimateAbility = (ActiveAbility)SetupAbility(UltimateAbility);
 
 
-			var temp = new List<PassiveAbility>();
+			List<PassiveAbility> temp = new List<PassiveAbility>();
 			foreach (PassiveAbility ability in PassiveAbilities)
 			{
-				var instance = (PassiveAbility)SetupAbility(ability);
+				PassiveAbility instance = (PassiveAbility)SetupAbility(ability);
 				temp.Add(instance);
 			}
 			PassiveAbilities = temp;
@@ -71,7 +71,7 @@ namespace Fralle.AbilitySystem
 			if (ability == null)
 				return null;
 
-			var instance = Instantiate(ability);
+			Ability instance = Instantiate(ability);
 			instance.Setup(this);
 			return instance;
 		}
