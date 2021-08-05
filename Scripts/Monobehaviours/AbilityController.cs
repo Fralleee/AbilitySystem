@@ -18,7 +18,7 @@ namespace Fralle.AbilitySystem
 
     public List<PassiveAbility> PassiveAbilities;
 
-    public PostProcessController postProcessController;
+    [HideInInspector] public PostProcessController postProcessController;
 
     PlayerInput playerInput;
 
@@ -43,7 +43,7 @@ namespace Fralle.AbilitySystem
 
     void Awake()
     {
-      postProcessController = GetComponent<PostProcessController>();
+      postProcessController = GetComponentInChildren<PostProcessController>();
 
       SetupAbilities();
 
