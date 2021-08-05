@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Fralle.Core;
 
 namespace Fralle.AbilitySystem
 {
@@ -18,6 +19,8 @@ namespace Fralle.AbilitySystem
 		public List<PassiveAbility> PassiveAbilities;
 
 		public GameObject PostProcess;
+		
+		public PostProcessController postProcessController;
 
 		PlayerInput playerInput;
 
@@ -42,12 +45,15 @@ namespace Fralle.AbilitySystem
 
 		void Awake()
 		{
+			postProcessController = GetComponent<PostProcessController>();
+
 			SetupAbilities();
 
 			playerInput = GetComponent<PlayerInput>();
 			playerInput.actions["MovementAbility"].performed += OnMovementAbility;
 			playerInput.actions["AttackAbility"].performed += OnAttackAbility;
 			playerInput.actions["UltimateAbility"].performed += OnUltimateAbility;
+
 		}
 
 		void SetupAbilities()
