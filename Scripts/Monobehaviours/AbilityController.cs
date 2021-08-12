@@ -1,7 +1,6 @@
 using Fralle.Core;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace Fralle.AbilitySystem
 {
@@ -70,24 +69,6 @@ namespace Fralle.AbilitySystem
 			Ability instance = Instantiate(ability);
 			instance.Setup(this);
 			return instance;
-		}
-
-		void OnMovementAbility(InputAction.CallbackContext context)
-		{
-			if (MovementAbility != null && MovementAbility.IsReady)
-				MovementAbility.Perform();
-		}
-
-		void OnAttackAbility(InputAction.CallbackContext context)
-		{
-			if (AttackAbility != null && AttackAbility.IsReady)
-				AttackAbility.Perform();
-		}
-
-		void OnUltimateAbility(InputAction.CallbackContext context)
-		{
-			if (UltimateAbility != null && UltimateAbility.IsReady)
-				UltimateAbility.Perform();
 		}
 	}
 }
