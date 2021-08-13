@@ -2,18 +2,19 @@ using UnityEngine;
 
 namespace Fralle.AbilitySystem
 {
-	public class ActiveAbility : Ability
+	public abstract class ActiveAbility : Ability
 	{
 		public float Cooldown = 0f;
 		internal float CooldownTimer;
 
-		public bool IsReady => Time.time > CooldownTimer;
+		[HideInInspector] public bool IsActive;
+		public bool IsReady => !IsActive && Time.time > CooldownTimer;
 
 		public virtual void Perform()
 		{
 			CooldownTimer = Time.time + Cooldown;
 		}
 
-		public override void Setup(AbilityController abilityController) { }
+		public abstract void Abort();
 	}
 }
