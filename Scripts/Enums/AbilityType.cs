@@ -1,10 +1,10 @@
 ﻿namespace Fralle.AbilitySystem
 {
-	public enum AbilityType
-	{
-		Movement,
-		Attack,
-		Ultimate,
-		Passive
-	}
+  public enum AbilityType
+  {
+    Movement,
+    Attack,
+    Ultimate,
+    Passive
+  }
 }
