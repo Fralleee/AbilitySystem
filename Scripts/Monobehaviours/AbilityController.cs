@@ -1,5 +1,7 @@
 using Fralle.Core;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Fralle.AbilitySystem
@@ -15,10 +17,11 @@ namespace Fralle.AbilitySystem
     [field: SerializeField]
     public ActiveAbility UltimateAbility { get; private set; }
 
-    public List<PassiveAbility> PassiveAbilities;
+    public List<PassiveAbility> passiveAbilities;
 
     [HideInInspector] public PostProcessController postProcessController;
 
+    // ReSharper disable once UnusedMember.Global
     public void NewAbility(Ability ability, AbilityType abilityType)
     {
       switch (abilityType)
@@ -33,8 +36,10 @@ namespace Fralle.AbilitySystem
           UltimateAbility = (ActiveAbility)SetupAbility(ability);
           break;
         case AbilityType.Passive:
-          PassiveAbilities.Add((PassiveAbility)SetupAbility(ability));
+          passiveAbilities.Add((PassiveAbility)SetupAbility(ability));
           break;
+        default:
+          throw new ArgumentOutOfRangeException(nameof(abilityType), abilityType, null);
       }
     }
 
@@ -52,13 +57,8 @@ namespace Fralle.AbilitySystem
       UltimateAbility = (ActiveAbility)SetupAbility(UltimateAbility);
 
 
-      List<PassiveAbility> temp = new List<PassiveAbility>();
-      foreach (PassiveAbility ability in PassiveAbilities)
-      {
-        PassiveAbility instance = (PassiveAbility)SetupAbility(ability);
-        temp.Add(instance);
-      }
-      PassiveAbilities = temp;
+      List<PassiveAbility> temp = passiveAbilities.Select(ability => (PassiveAbility)SetupAbility(ability)).ToList();
+      passiveAbilities = temp;
     }
 
     Ability SetupAbility(Ability ability)

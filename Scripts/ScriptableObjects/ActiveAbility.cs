@@ -4,17 +4,18 @@ namespace Fralle.AbilitySystem
 {
   public abstract class ActiveAbility : Ability
   {
-    public float Cooldown = 0f;
+    public float cooldown = 0f;
     internal float CooldownTimer;
 
-    [HideInInspector] public bool IsActive;
-    public bool IsReady => !IsActive && Time.time > CooldownTimer;
+    [HideInInspector] public bool isActive;
+    public bool IsReady => !isActive && Time.time > CooldownTimer;
 
     public virtual void Perform()
     {
-      CooldownTimer = Time.time + Cooldown;
+      CooldownTimer = Time.time + cooldown;
     }
 
+    // ReSharper disable once UnusedMember.Global
     public abstract void Abort();
   }
 }
