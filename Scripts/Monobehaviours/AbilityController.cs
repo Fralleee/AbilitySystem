@@ -45,8 +45,11 @@ namespace Fralle.AbilitySystem
 
     protected virtual void Awake()
     {
-      postProcessController = GetComponentInChildren<PostProcessController>();
+      postProcessController = FindObjectOfType<PostProcessController>();
+    }
 
+    protected virtual void Start()
+    {
       SetupAbilities();
     }
 
