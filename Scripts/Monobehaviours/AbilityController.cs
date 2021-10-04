@@ -66,7 +66,7 @@ namespace Fralle.AbilitySystem
 
     Ability SetupAbility(Ability ability)
     {
-      if (ability == null)
+      if (!ability)
         return null;
 
       Ability instance = Instantiate(ability);
